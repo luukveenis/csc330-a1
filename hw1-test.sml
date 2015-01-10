@@ -16,14 +16,14 @@ val march31_2011 = {year = 2011, month = 3, day = 31}
 val april28_2011 = {year = 2011, month = 4, day = 28}
 val june1_2013 = {year = 2013, month = 6, day = 1}
 
-val test1 = is_older({year = 1, month = 2, day = 3},{year = 2, month = 3, day = 4}) = false
+val test1 = is_older({year = 1, month = 2, day = 3},{year = 2, month = 3, day = 4}) = false;
 val test1a = is_older(feb28_2012,dec1_2013) = false;
 val test1b = is_older(dec1_2013, feb28_2012) = true;
 val test1c = is_older(dec1_2013, dec1_2013) = false;
 
-val test2 = number_in_month([feb28_2012,dec1_2013],2) = 1
-val test2a = number_in_month([feb28_2012,dec1_2013],3) = 0
-val test2b = number_in_month([feb28_2012,dec1_2013,march31_2011,april28_2011],3) = 1
+val test2 = number_in_month([feb28_2012,dec1_2013],2) = 1;
+val test2a = number_in_month([feb28_2012,dec1_2013],3) = 0;
+val test2b = number_in_month([feb28_2012,dec1_2013,march31_2011,april28_2011],3) = 1;
 
 val test3a = number_in_months([feb28_2012,dec1_2013,march31_2011,april28_2011],[2,3,4]) = 3
 

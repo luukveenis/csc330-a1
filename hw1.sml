@@ -11,3 +11,12 @@ fun is_older(d1: DATE, d2: DATE): bool =
     true
   else
     false
+
+fun number_in_month(dates : DATE list, month : int) =
+  if null dates
+  then 0
+  else if (#month (hd dates)) = month
+  then 1 + number_in_month(tl dates, month)
+       else 0 + number_in_month(tl dates, month)
+
+
