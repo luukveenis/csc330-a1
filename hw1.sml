@@ -31,3 +31,13 @@ fun get_nth(words: string list, n: int): string =
   if n = 0 orelse n > length words then raise InvalidParameter
   else if n = 1 then hd words
     else get_nth(tl words, n-1)
+
+fun date_to_string(date: DATE): string =
+  let
+    val months = [
+      "January", "February", "March", "April", "May", "June", "July",
+      "August", "September", "November", "December"
+    ]
+  in
+    get_nth(months, #month date) ^ " " ^ Int.toString(#day date) ^ ", " ^ Int.toString(#year date)
+  end
