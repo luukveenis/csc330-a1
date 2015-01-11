@@ -53,3 +53,7 @@ fun what_month(doy: int):int =
   in
     number_before_reaching_sum(doy, days_in_months) + 1
   end
+
+fun month_range(day1: int, day2: int): int list =
+  if day1 > day2 then []
+  else what_month(day1) :: month_range(day1+1, day2)
