@@ -29,3 +29,7 @@ fun dates_in_month(dates: DATE list, month: int): DATE list =
   else if (#month (hd dates)) = month
   then hd dates :: dates_in_month(tl dates, month)
        else dates_in_month(tl dates, month)
+
+fun dates_in_months(dates: DATE list, months: int list): DATE list =
+  if null months then []
+  else dates_in_month(dates, hd months) @ dates_in_months(dates, tl months)
