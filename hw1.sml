@@ -20,6 +20,5 @@ fun number_in_month(dates : DATE list, month : int) =
        else 0 + number_in_month(tl dates, month)
 
 fun number_in_months(dates: DATE list, months: int list) =
-  if null months
-  then 0
+  if null months then 0
   else number_in_month(dates, hd months) + number_in_months(dates, tl months)
