@@ -33,3 +33,8 @@ fun dates_in_month(dates: DATE list, month: int): DATE list =
 fun dates_in_months(dates: DATE list, months: int list): DATE list =
   if null months then []
   else dates_in_month(dates, hd months) @ dates_in_months(dates, tl months)
+
+fun get_nth(words: string list, n: int): string =
+  if n = 0 orelse n > length words then raise InvalidParameter
+  else if n = 1 then hd words
+    else get_nth(tl words, n-1)
