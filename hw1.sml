@@ -22,3 +22,10 @@ fun number_in_month(dates : DATE list, month : int) =
 fun number_in_months(dates: DATE list, months: int list) =
   if null months then 0
   else number_in_month(dates, hd months) + number_in_months(dates, tl months)
+
+fun dates_in_month(dates: DATE list, month: int): DATE list =
+  if null dates
+  then []
+  else if (#month (hd dates)) = month
+  then hd dates :: dates_in_month(tl dates, month)
+       else dates_in_month(tl dates, month)
