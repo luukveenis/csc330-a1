@@ -46,3 +46,10 @@ fun number_before_reaching_sum(sum: int, nums: int list): int =
   if null nums andalso sum > 0 then raise InvalidParameter
   else if sum - hd nums <= 0 then 0
        else 1 + number_before_reaching_sum(sum - hd nums, tl nums)
+
+fun what_month(doy: int):int =
+  let
+    val days_in_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+  in
+    number_before_reaching_sum(doy, days_in_months) + 1
+  end

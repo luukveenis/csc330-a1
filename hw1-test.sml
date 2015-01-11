@@ -50,10 +50,10 @@ val test8d = number_before_reaching_sum(6, [1,2,3,4,5]) = 2;
 val test8e = number_before_reaching_sum(6, []) = 0 handle InvalidParameter => true;
 val test8f = number_before_reaching_sum(5, [1,2]) = 0 handle InvalidParameter => true;
 
-val test9  = what_month(70) = 3
-val test9a = what_month(31) = 1
-val test9b = what_month(32) = 2
-val test9c = what_month(360) = 12
+val test9  = what_month(70) = 3;
+val test9a = what_month(31) = 1;
+val test9b = what_month(32) = 2;
+val test9c = what_month(360) = 12;
 
 val test10 = month_range(31, 34) = [1,2,2,2]
 val test10a = month_range(360, 365) = [12,12,12,12,12,12];
