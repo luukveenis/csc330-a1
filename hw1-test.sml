@@ -47,6 +47,8 @@ val test8a = number_before_reaching_sum(10, [11,1,2,3,4,5]) = 0
 val test8b = number_before_reaching_sum(12, [11,1,2,3,4,5]) = 1
 val test8c = number_before_reaching_sum(1, [1,2,3,4,5]) = 0;
 val test8d = number_before_reaching_sum(6, [1,2,3,4,5]) = 2;
+val test8e = number_before_reaching_sum(6, []) = 0 handle InvalidParameter => true;
+val test8f = number_before_reaching_sum(5, [1,2]) = 0 handle InvalidParameter => true;
 
 val test9  = what_month(70) = 3
 val test9a = what_month(31) = 1
