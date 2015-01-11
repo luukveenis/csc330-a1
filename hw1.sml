@@ -3,11 +3,11 @@
 type DATE = {year:int, month:int, day: int}
 exception InvalidParameter
 
-fun weighted_sum(d : DATE) =
+fun date_as_ratio(d : DATE) =
   real(#year d) + (real(#month d) / 12.0) + (real(#day d) / 365.0)
 
 fun is_older(d1: DATE, d2: DATE): bool =
-  weighted_sum(d1) > weighted_sum(d2)
+  date_as_ratio(d1) > date_as_ratio(d2)
 
 fun number_in_month(dates : DATE list, month : int) =
   if null dates then 0
