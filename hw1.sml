@@ -73,3 +73,24 @@ fun oldest(dates: DATE list): DATE option =
     in
       SOME (max dates)
     end
+
+fun is_leap_year(year: int): bool =
+  (year mod 400 = 0) orelse ((year mod 4 = 0) andalso (year mod 100 <> 0))
+
+fun reasonable_date(date: DATE): bool =
+  if (#year date) > 0 andalso (#month date) > 0 andalso (#month date) < 13
+  then
+    let
+      fun get_days(days: int list, month: int): int =
+        if month = 1 then hd days
+        else get_days(tl days, month-1)
+
+      val days_in_months =
+        if is_leap_year(#year date)
+        then [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        else [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+      val days_in_month = get_days(days_in_months, #month date)
+    in
+      (#day date) > 0 andalso (#day date) <= days_in_month
+    end
+  else false
