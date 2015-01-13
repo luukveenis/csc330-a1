@@ -3,11 +3,13 @@
 type DATE = {year:int, month:int, day: int}
 exception InvalidParameter
 
-fun date_as_ratio(d : DATE) =
-  real(#year d) + (real(#month d) / 12.0) + (real(#day d) / 365.0)
-
 fun is_older(d1: DATE, d2: DATE): bool =
-  date_as_ratio(d1) > date_as_ratio(d2)
+  if (#year d1) > (#year d2) then true
+  else if (#year d1) = (#year d2) then
+    if (#month d1) > (#month d2) then true
+    else if (#month d1) = (#month d2) andalso (#day d1) > (#day d2) then true
+    else false
+  else false
 
 fun number_in_month(dates : DATE list, month : int) =
   if null dates then 0
