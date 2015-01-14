@@ -4,12 +4,10 @@ type DATE = {year:int, month:int, day: int}
 exception InvalidParameter
 
 fun is_older(d1: DATE, d2: DATE): bool =
-  if (#year d1) > (#year d2) then true
-  else if (#year d1) = (#year d2) then
-    if (#month d1) > (#month d2) then true
-    else if (#month d1) = (#month d2) andalso (#day d1) > (#day d2) then true
-    else false
-  else false
+  ((#year d1) > (#year d2)) orelse
+    ((#year d1) = (#year d2) andalso
+      ((#month d1) > (#month d2) orelse
+      ((#month d1) = (#month d2) andalso (#day d1) > (#day d2))))
 
 fun number_in_month(dates : DATE list, month : int) =
   if null dates then 0
