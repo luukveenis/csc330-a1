@@ -39,7 +39,8 @@ fun date_to_string(date: DATE): string =
       "August", "September", "November", "December"
     ]
   in
-    get_nth(months, #month date) ^ " " ^ Int.toString(#day date) ^ ", " ^ Int.toString(#year date)
+    get_nth(months, #month date) ^ " " ^ Int.toString(#day date) ^ ", " ^
+      Int.toString(#year date)
   end
 
 fun number_before_reaching_sum(sum: int, nums: int list): int =
@@ -74,9 +75,6 @@ fun oldest(dates: DATE list): DATE option =
       SOME (max dates)
     end
 
-fun is_leap_year(year: int): bool =
-  (year mod 400 = 0) orelse ((year mod 4 = 0) andalso (year mod 100 <> 0))
-
 fun reasonable_date(date: DATE): bool =
   if (#year date) > 0 andalso (#month date) > 0 andalso (#month date) < 13
   then
@@ -84,6 +82,8 @@ fun reasonable_date(date: DATE): bool =
       fun get_days(days: int list, month: int): int =
         if month = 1 then hd days
         else get_days(tl days, month-1)
+      fun is_leap_year(year: int): bool =
+        (year mod 400 = 0) orelse ((year mod 4 = 0) andalso (year mod 100 <> 0))
 
       val days_in_months =
         if is_leap_year(#year date)
